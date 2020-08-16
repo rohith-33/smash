@@ -1,5 +1,10 @@
 var express=require('express');
 var app=express();
+app.use(express.json());
+app.use(express.urlencoded())
+var userLib=require('./userlib')
+var db=require('./Backend/db/dbconnect');
+db.connect();
 app.use(express.static(__dirname+'/frontend'));
 app.use('/',function(req,res,next){
     console.log("yeah i got request first,but i am not handling it");
