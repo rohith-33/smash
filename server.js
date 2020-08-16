@@ -39,6 +39,12 @@ app.get('/',function(req,res){
     //res.send('Hello world');
     res.sendFile(__dirname+'/frontend/html/index.html');
 })
+app.get('/api/user',function(req,res)
+{
+     userLib.getAllUsers(function(err, arrayOfUsers){
+        res.json(arrayOfUsers);
+     })
+})
 app.post('/api/user',function(req,res)
 {
     userLib.createUser(req.body)
