@@ -18,6 +18,10 @@ app.get('/clock',function(req,res){
     //res.send('Hello world');
     res.sendFile(__dirname+'/frontend/html/clock.html');
 })
+app.get('/clock',function(req,res){
+    //res.send('Hello world');
+    res.sendFile(__dirname+'/frontend/html/clock.html');
+})
 app.get('/resume',function(req,res){
     //res.send('Hello world');
     res.sendFile(__dirname+'/frontend/html/resume.html');
