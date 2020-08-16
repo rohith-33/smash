@@ -25,6 +25,10 @@ app.get('/tambola',function(req,res){
     //res.send('Hello world');
     res.sendFile(__dirname+'/frontend/html/tambola.html');
 })
+app.get('/tambola',function(req,res){
+    //res.send('Hello world');
+    res.sendFile(__dirname+'/frontend/html/tambola.html');
+})
 app.get('/',function(req,res){
     //res.send('Hello world');
     res.sendFile(__dirname+'/frontend/html/index.html');
