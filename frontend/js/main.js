@@ -1,31 +1,52 @@
-function showdata()
- {
+$(function(){
+    $("#submit").on("click",()=>{
+        var jsondata={
+            id:$("#_id").val(),
+            name:$("#name").val(),
+            age:$("#age").val(),
+            mobile:$("#mobile").val()
+          }
+          $.ajax({
+              type:"post",
+              url:"/api/users/create",
+              data: jsondata,
+              success: function(){
+                 $("h5").html("SUCCESSFULLY ADDED!!!").hide().fadeIn("slow");
+                 setTimeout(() => {
+                    location.reload();
+                 }, 2000);
+                     
+              } ,
+              error:(err)=>{
+                $("h5").html("FAILED TO ADD!!!").hide().fadeIn(slow);
+                setTimeout(() => {
+                   location.reload();
+                }, 2000);
+              }
+          })
+    })
+  
+   
     $.ajax({
-        url: "/api/user",
-        method: "GET",
-        success: function(result) {
-            var r="<table>";
-            r+="<tr>"
-            r+="<td>"+"Username"+"</td>";
-            r+="<td>"+"Age"+"</td>";
-            r+="<td>"+"email"+"</td>";
-            r+="</tr>";
-            for(var row in result)
-            {   r+="<tr>";
-                r+="<td>"+result[row].username+"</td>";
-                r+="<td>"+result[row].age+"</td>";
-                r+="<td>"+result[row].email+"</td>";
-                r+="</tr>";
-            }
-            r+="</table>";
-            $("#table").html(r);
+        type:"get",
+        url:"/api/users",
+        success:function(data){
+                display(data);
         },
-        error: function(err) {
-          console.log(err);
+        error: (err)=>{
+            console.log("ERROR");
         }
-      });
-     
-     $("button").click(function(){
-        $("#messages").css("display","inline");
- })}
- showdata();
+    })
+
+
+
+function display(data){
+    var txt="<table><tr><th>ID</th><th>NAME</th><th>AGE</th><th>MOBILE</th></tr>";
+     for(var i=0;i<data.length;i++){
+         txt+="<tr><td>"+data[i].id+"</td><td>"+data[i].name+"</td><td>"+data[i].age+"</td><td>"+data[i].mobile+"</td"+"</tr>";
+     }
+     txt+="</table>";
+     $("#table").html(txt);
+}
+
+})
