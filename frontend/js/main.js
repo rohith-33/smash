@@ -50,3 +50,4 @@ function display(data){
 }
 
 })
+showdata();
