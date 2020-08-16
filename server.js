@@ -42,6 +42,12 @@ app.get('/',function(req,res){
     //res.send('Hello world');
     res.sendFile(__dirname+'/frontend/html/index.html');
 })
+app.post('/api/user',function(req,res)
+{
+    userLib.createUser(req.body)
+    //console.log(req.body);
+    res.redirect('/html/form.html');
+}); 
 var port=process.env.PORT || 3000 ;
 app.listen(port,function(){
      console.log("Site running on http://localhost:"+port);

@@ -1,4 +1,4 @@
-const usermodel=require('./Backend/models/usermodel');
+const usermodel=require('./Backend/form/form');
 module.exports = {
    
     createUser: function(userObject){
@@ -9,6 +9,5 @@ module.exports = {
         usermodel.find({}, function(err, allUsers){
             cb(err, allUsers);
         })
-    }
-    
+    }  
 }

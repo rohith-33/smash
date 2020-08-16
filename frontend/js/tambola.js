@@ -23,5 +23,4 @@ function generate()
    {alert('Game Over! Play Again ');
    setcount.clear();
     }   
-   
 }
