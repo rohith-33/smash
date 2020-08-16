@@ -1,0 +1,62 @@
+body{
+    margin-left: 10px;
+}
+front{
+    text-align : center ;
+    position : absolute;
+    color : black ;
+    top : 15% ;
+    left : 30% ;
+    right : 30% ;
+}
+.image{
+    background-position : center;
+    background-size : cover;
+}
+.redButton{
+background-color: red;
+font-size: 12;
+color: white;
+border: 10 px solid yellow;
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.blueButton{
+background-color: blue;
+font-size: 12;
+color: white;
+}
+#para1{
+color: green;
+}
+.bz-green{
+color: green;
+
+}
+.bz-blue{
+    color: blue;
+}
+table{
+   
+}
+table th,td{
+    border-width: 2px;
+    border-color: blue;
+    border-style: solid;
+    text-align: center;
+    /*border: 2px solid red;*/
+}
+th{
+    text-align: center;
+}
+img{
+    width: 30px;
+    height: 30px;
+}
+.pdisplay
+{
+ background-color:red ;
+ color: green;
+}
+.page{
+    background-color: maroon;
+}
