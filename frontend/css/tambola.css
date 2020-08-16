@@ -4,12 +4,12 @@ table{
 
 td{
     
-    color:black;
+    color:red;
     font-style:normal;
     padding: 15px;
     
 }
 table, th, td {
-    border: 2px solid rgb(21, 219, 48);
+    border: 2px solid rgb(23, 200, 40);
     border-collapse: collapse;
   }
