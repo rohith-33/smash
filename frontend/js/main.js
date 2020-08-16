@@ -1,37 +1,31 @@
-$('#formbutton').click(async()=>{
-    var userdata={
-      name:document.getElementById('name').value,
-      rollno:document.getElementById('roll').value,
-      age:document.getElementById('age').value,
-      email:document.getElementById('exampleInputEmail1').value,
-      phonenumber:document.getElementById('number').value
- }
- await $.post('/submitdata',userdata,async(data,status)=>{
+function showdata()
+ {
+    $.ajax({
+        url: "/api/user",
+        method: "GET",
+        success: function(result) {
+            var r="<table>";
+            r+="<tr>"
+            r+="<td>"+"Username"+"</td>";
+            r+="<td>"+"Age"+"</td>";
+            r+="<td>"+"email"+"</td>";
+            r+="</tr>";
+            for(var row in result)
+            {   r+="<tr>";
+                r+="<td>"+result[row].username+"</td>";
+                r+="<td>"+result[row].age+"</td>";
+                r+="<td>"+result[row].email+"</td>";
+                r+="</tr>";
+            }
+            r+="</table>";
+            $("#table").html(r);
+        },
+        error: function(err) {
+          console.log(err);
+        }
+      });
      
-   if(status=="success")
-       {
-         window.setTimeout(()=>{
-            $('#show').html("Submitted Sucessfully")
-         },1000);
-          window.setTimeout(()=>{
-             window.location.reload()
-          },2000)
-       }
- })
- })
- $('#getallusers').click(async()=>{
-   await $.get('/getallusers',(data,status)=>{
-         if(status=='success')
-         {
-          var users=JSON.parse(data)
-           // console.log(data);
-           var html="<div id=\"table\"><table id=\"allusers\"><tr><th>Name</th><th>Roll no</th><th>Age</th><th>Email</th><th>Phonenumber</th></tr>";
-           for(let i=0;i<users.length;i++)
-           {
-             html=html+"<tr><td>"+users[i].name+"</td><td>"+users[i].rollno+"</td><td>"+users[i].age+"</td><td>"+users[i].email+"</td><td>"+users[i].phonenumber+"</td></tr>";
-           }
-           html+="</table></div>"
-           $("body").append(html)
-         }
-   })
- })
+     $("button").click(function(){
+        $("#messages").css("display","inline");
+ })}
+ showdata();
