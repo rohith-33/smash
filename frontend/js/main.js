@@ -50,4 +50,4 @@ function display(data){
 }
 
 })
-showdata();
+display();
