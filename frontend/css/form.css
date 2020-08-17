@@ -1,19 +1,31 @@
-table{
-    margin-left: 10%;
+body{
+    border: 20px solid white;
+    padding: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    background-color: black;
+    color:white;
 }
-
+table,th,tr,td{
+   border : 1px solid white;
+   border-collapse: collapse;
+}
+label,input{
+    padding: 0px !important;
+    margin:0px !important;
+}
+input{
+    margin-bottom: 4px !important;
+}
+h3{
+    text-align: center;
+}
 td{
-    
-    color:blueviolet;
-    font-style:normal;
-    padding: 15px;
-    
+   
+    padding:6px 10px;
 }
-table, th, td {
-    border: 2px solid rgb(26, 210, 48);
-    border-collapse: collapse;
-  }
-#messages
-{
-display: none;
+th{
+    text-align: center;
 }
